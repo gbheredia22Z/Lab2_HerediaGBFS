@@ -109,3 +109,58 @@ class Grafo:
                     cola.put(siguiente_nodo)
                     #Marca el nodo como visitad
                     visitado.add(siguiente_nodo)
+
+if __name__ == "__main__":
+    """
+    En la clase Main la clase Grafo será instaciada de modo que podamos acceder a sus métodos.
+    A su vez se requiere de la implementción de 3 casos de estudio que permitirán verificar
+    el funcionamiento del programa
+    """
+    print(" Caso de Prueba 1")
+    grafo_casoprueba1 = Grafo(5, dirigido = False) # instancia de la clase Grafo
+    grafo_casoprueba1.agregar_borde(0, 1) # Agregar bordes al grafo con peso predeterminado = 1
+    grafo_casoprueba1.agregar_borde(0, 2) # Agregar bordes al grafo con peso predeterminado = 1
+    grafo_casoprueba1.agregar_borde(1, 2) # Agregar bordes al grafo con peso predeterminado = 1
+    grafo_casoprueba1.agregar_borde(1, 4) # Agregar bordes al grafo con peso predeterminado = 1
+    grafo_casoprueba1.agregar_borde(3, 3) # Agregar bordes al grafo con peso predeterminado = 1
+
+    grafo_casoprueba1.imprimir_lista_adyacente() #Se imprime la lista de adyacencia
+ 
+    print("A continuación se muestra el recorrido primero en anchura a partir del vértice 0)")
+    #Muestra la lista de colas visitadas y devuelve las colas visitadas
+    grafo_casoprueba1.bfs_transversal(0)
+    print()
+
+    print(" Caso de Prueba 2")
+    grafo_casoprueba2 = Grafo(4, dirigido = False) # instancia de la clase Grafo
+    grafo_casoprueba2.agregar_borde(1, 2) # Agregar bordes al grafo 
+    grafo_casoprueba2.agregar_borde(0, 3) # Agregar bordes al grafo 
+    grafo_casoprueba2.agregar_borde(2, 1) # Agregar bordes al grafo 
+    grafo_casoprueba2.agregar_borde(2, 3) # Agregar bordes al grafo 
+
+
+    grafo_casoprueba2.imprimir_lista_adyacente() #Se imprime la lista de adyacencia
+
+    print("A continuación se muestra el recorrido primero en anchura a partir del vértice 0)")
+    #Muestra la lista de colas visitadas y devuelve las colas visitadas
+    grafo_casoprueba2.bfs_transversal(0)
+    print()
+
+    print(" Caso de Prueba 3")
+    grafo_casoprueba3 = Grafo(8, dirigido = False) # instancia de la clase Grafo
+    grafo_casoprueba3.agregar_borde(2, 1) # Agregar bordes al grafo 
+    grafo_casoprueba3.agregar_borde(1, 2) # Agregar bordes al grafo 
+    grafo_casoprueba3.agregar_borde(3, 3) # Agregar bordes al grafo 
+    grafo_casoprueba3.agregar_borde(0, 2) # Agregar bordes al grafo 
+    grafo_casoprueba3.agregar_borde(2, 4) # Agregar bordes al grafo 
+    grafo_casoprueba3.agregar_borde(1, 1) # Agregar bordes al grafo 
+    grafo_casoprueba3.agregar_borde(0, 4) # Agregar bordes al grafo 
+    grafo_casoprueba3.agregar_borde(7, 2) # Agregar bordes al grafo 
+
+
+    grafo_casoprueba3.imprimir_lista_adyacente() ##Muestra la lista de adyacencia del nodo n: {(nodo, peso)}
+
+    print("A continuación se muestra el recorrido primero en anchura a partir del vértice 0)")
+    #Muestra la lista de colas visitadas y devuelve las colas visitadas
+    grafo_casoprueba3.bfs_transversal(0)
+    print()
