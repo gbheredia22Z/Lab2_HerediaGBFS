@@ -43,7 +43,8 @@ class Grafo:
         self.m_lista_adyacencia = {nodo: set() for nodo in self.m_nodos}#Implementación de lista de adyacencia mediante un diccionario
     
     def agregar_borde(self, nodo1, nodo2, peso=1):
-        """Se agrega nodos a la lista de adyacencia recibiendo como parámetros : nodo1, nodo2 y el peso
+        """
+        Se agrega nodos a la lista de adyacencia recibiendo como parámetros : nodo1, nodo2 y el peso
         Posteriormente los nodos son agregados a la lista de adyacencia, evaluando los parámetros:
 
         nodo1: int
@@ -61,14 +62,50 @@ class Grafo:
             self.m_lista_adyacencia[nodo2].add((nodo1, peso))
             
     def imprimir_lista_adyacente(self):
-        """Se realiza la impresión del grafo de la lista de adyacencia sin recibir parámetros 
+        """
+        Se realiza la impresión del grafo de la lista de adyacencia sin recibir parámetros 
 
         Parametros : Ningun parámetro
         Retorno :  Ningun valor de retorno
-     
         """
         #Lista de adyacencia recorrida
         for llave in self.m_lista_adyacencia.keys():
              # Impresión del nodo
             print("nodo", llave, ": ", self.m_lista_adyacencia[llave])
+
+    def bfs_transversal(self, nodo_inicial):
+        """
+        Este método permite mostrar el recorrido BFS de un nodo inicial, para receptar
+        el valor del nodo_inicial para generar una lista de las colas visitadas mostrando
+        el recorrido de este, evaluando los parámetros:
             
+        nodo_de_inicio : int
+        visitado : int
+        cola : int
+
+        Retorno : Ningun valor de retorno
+        """
+        #Nodos visitados 
+        visitado = set()
+        #Definición elemento de tipo lista
+        cola = Queue()
+
+        #Añade nodo_inicial a la cola y genera la lista visitada
+        cola.put(nodo_inicial)
+        visitado.add(nodo_inicial)
+
+        #Bucle que muestra los nodos
+        while not cola.empty():
+            #Quitar un vértice de la cola
+            nodo_actual = cola.get()
+            #Mostar vértice
+            print(nodo_actual, end = " ")
+
+            #Ciclo que permite obtener los vértices adyacentes del vértice eliminado 
+            for (siguiente_nodo, peso) in self.m_lista_adyacencia[nodo_actual]:
+                #Si el nodo no ha sido visitado
+                if siguiente_nodo not in visitado:
+                    #Agrega el nodo a la cola
+                    cola.put(siguiente_nodo)
+                    #Marca el nodo como visitad
+                    visitado.add(siguiente_nodo)
