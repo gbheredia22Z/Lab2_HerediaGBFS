@@ -50,7 +50,7 @@ class Grafo:
         nodo2: int
         peso: int
 
-        Retorno: nada
+        Retorno: Ningun valor de retorno
         """
         #Agregar nodo 2 a lista de adyacencia en nodo 1
         self.m_lista_adyacencia[nodo1].add((nodo2, peso)) 
@@ -59,4 +59,16 @@ class Grafo:
         if not self.m_dirigido:
             # Agregar nodo 1 a lista de adyacencia en nodo2
             self.m_lista_adyacencia[nodo2].add((nodo1, peso))
+            
+    def imprimir_lista_adyacente(self):
+        """Se realiza la impresión del grafo de la lista de adyacencia sin recibir parámetros 
+
+        Parametros : Ningun parámetro
+        Retorno :  Ningun valor de retorno
+     
+        """
+        #Lista de adyacencia recorrida
+        for llave in self.m_lista_adyacencia.keys():
+             # Impresión del nodo
+            print("nodo", llave, ": ", self.m_lista_adyacencia[llave])
             
